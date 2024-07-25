@@ -2,15 +2,72 @@ package rent.Models.abstraction;
 
 public abstract class Car {
 
-    public String model;
-    public String brand;
-    public String segment;
-    public String gearType;
-    public short baggageCapacity;
-    public String color;
-    public short age;
-    public String fuelType;
+    private String model;
+    private String brand;
+    private String segment;
+    private String gearType;
+    private double baggageCapacity;
+    private String color;
+    private short age;
+    private String fuelType;
+    private GearType specificGearType;
+    private FuelType specificFuelType;
+    private Segment specificSegment;
+    private short seatingCapacity;
+    private double fuelTankCapacity;
 
+
+    public abstract double calculateMonthlyCarPrice();
+
+    public abstract double calculateDailyCarPrice();
+
+    public void setBaggageCapacity(double baggageCapacity) {
+        this.baggageCapacity = baggageCapacity;
+    }
+
+    public void setFuelTankCapacity(double fuelTankCapacity) {
+        this.fuelTankCapacity = fuelTankCapacity;
+    }
+
+    public double getFuelTankCapacity() {
+        return fuelTankCapacity;
+    }
+
+    public void setFuelTankCapacity(short fuelTankCapacity) {
+        this.fuelTankCapacity = fuelTankCapacity;
+    }
+
+    public int getSeatingCapacity() {
+        return seatingCapacity;
+    }
+
+    public void setSeatingCapacity(short seatingCapacity) {
+        this.seatingCapacity = seatingCapacity;
+    }
+
+    public GearType getSpecificGearType() {
+        return specificGearType;
+    }
+
+    public void setSpecificGearType(GearType specificGearType) {
+        this.specificGearType = specificGearType;
+    }
+
+    public FuelType getSpecificFuelType() {
+        return specificFuelType;
+    }
+
+    public void setSpecificFuelType(FuelType specificFuelType) {
+        this.specificFuelType = specificFuelType;
+    }
+
+    public Segment getSpecificSegment() {
+        return specificSegment;
+    }
+
+    public void setSpecificSegment(Segment specificSegment) {
+        this.specificSegment = specificSegment;
+    }
 
     public String getBrand() {
         return brand;
@@ -36,7 +93,7 @@ public abstract class Car {
         this.gearType = gearType;
     }
 
-    public short getBaggageCapacity() {
+    public double getBaggageCapacity() {
         return baggageCapacity;
     }
 
@@ -68,9 +125,6 @@ public abstract class Car {
         this.fuelType = fuelType;
     }
 
-
-
-
     public String getModel() {
         return model;
     }
@@ -79,16 +133,7 @@ public abstract class Car {
         this.model = model;
     }
 
-    public void rentableforDay(int x){
-        System.out.println( x + "gün kiralanabilir");
-    }
 
-    public void rentableBy(Object object){
 
-    }
 
-    public double price(){  
-        int rentPrice = 0;
-        return rentPrice;
-    }
 }
