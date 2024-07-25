@@ -1,12 +1,13 @@
-package rent.Models.concrete;
+package rent.Models.concrete.Car;
 
 import rent.Models.abstraction.Car;
-import rent.Models.abstraction.FuelType;
-import rent.Models.abstraction.GearType;
-import rent.Models.abstraction.Segment;
+import rent.Models.enums.FuelType;
+import rent.Models.enums.GearType;
+import rent.Models.enums.Segment;
 
 
 public class SUV extends Car {
+
 
     private boolean fourWheelDrive;
     private double groundClearance;
@@ -14,6 +15,17 @@ public class SUV extends Car {
     private boolean offRoadCapability;
     private boolean roofRails;
     private double cargoSpace;
+
+    public SUV(String model, String brand, String segment, String gearType, double baggageCapacity, String color, short age,
+               String fuelType, GearType specificGearType, FuelType specificFuelType, Segment specificSegment, short seatingCapacity,double fuelTankCapacity, boolean fourWheelDrive, double groundClearance, double towingCapacity, boolean offRoadCapability,boolean roofRails, double cargoSpace ) {
+        super(model, brand, segment, gearType, baggageCapacity, color, age, fuelType, specificGearType, specificFuelType, specificSegment, seatingCapacity, fuelTankCapacity);
+        this.fourWheelDrive = fourWheelDrive;
+        this.groundClearance = groundClearance;
+        this.towingCapacity = towingCapacity;
+        this.offRoadCapability = offRoadCapability;
+        this.roofRails = roofRails;
+        this.cargoSpace = cargoSpace;
+    }
 
     @Override
     public double calculateMonthlyCarPrice()  {
@@ -29,18 +41,7 @@ public class SUV extends Car {
             return 2900;
     }
 
-    public SUV() {
 
-        this.fourWheelDrive = true;
-        this.groundClearance = 300;    //milimeter
-        this.towingCapacity = 1750;    //kg
-        this.offRoadCapability = true;
-        this.roofRails = true;
-        this.cargoSpace = 475;     //liter
-        this.setSpecificSegment(Segment.SUV);
-        this.setSpecificFuelType(FuelType.DIESEL);
-        this.setSpecificGearType(GearType.AUTOMATIC);
-    }
 
     public boolean isFourWheelDrive() {
         return fourWheelDrive;

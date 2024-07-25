@@ -1,5 +1,9 @@
 package rent.Models.abstraction;
 
+import rent.Models.enums.FuelType;
+import rent.Models.enums.GearType;
+import rent.Models.enums.Segment;
+
 public abstract class Car {
 
     private String model;
@@ -16,6 +20,21 @@ public abstract class Car {
     private short seatingCapacity;
     private double fuelTankCapacity;
 
+    public Car(String model, String brand, String segment, String gearType, double baggageCapacity, String color, short age, String fuelType, GearType specificGearType, FuelType specificFuelType, Segment specificSegment, short seatingCapacity, double fuelTankCapacity) {
+        this.model = model;
+        this.brand = brand;
+        this.segment = segment;
+        this.gearType = gearType;
+        this.baggageCapacity = baggageCapacity;
+        this.color = color;
+        this.age = age;
+        this.fuelType = fuelType;
+        this.specificGearType = specificGearType;
+        this.specificFuelType = specificFuelType;
+        this.specificSegment = specificSegment;
+        this.seatingCapacity = seatingCapacity;
+        this.fuelTankCapacity = fuelTankCapacity;
+    }
 
     public abstract double calculateMonthlyCarPrice();
 
