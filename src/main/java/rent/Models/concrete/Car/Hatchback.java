@@ -8,8 +8,8 @@ import rent.Models.enums.Segment;
 public class Hatchback extends Car {
      private boolean rearSeatFoldable;
 
-     public Hatchback(String model, String brand, String segment, String gearType, double baggageCapacity, String color, short age, String fuelType, GearType specificGearType, FuelType specificFuelType, Segment specificSegment, short seatingCapacity, double fuelTankCapacity, boolean rearSeatFoldable) {
-          super(model, brand, segment, gearType, baggageCapacity, color, age, fuelType, specificGearType, specificFuelType, specificSegment, seatingCapacity, fuelTankCapacity);
+     public Hatchback(String model, String brand, GearType gearType, double baggageCapacity, String color, short age, FuelType fuelType, short seatingCapacity, double fuelTankCapacity, boolean rearSeatFoldable) {
+          super(model, brand, Segment.HATCHBACK, gearType, baggageCapacity, color, age, fuelType, seatingCapacity, fuelTankCapacity);
           this.rearSeatFoldable = rearSeatFoldable;
      }
 
@@ -23,8 +23,7 @@ public class Hatchback extends Car {
 
      @Override
      public double calculateMonthlyCarPrice() {
-           return calculateDailyCarPrice() * 30 * 90 / 100 ;
-           // Hatchback cars have a 10-percent discount on monthly rental.
+          return calculateDailyCarPrice() * 30 * 0.90; // Hatchback cars have a 10% discount on monthly rental.
      }
 
      @Override

@@ -36,6 +36,10 @@ public abstract class Car {
         this.fuelTankCapacity = fuelTankCapacity;
     }
 
+    public Car(String model, String brand, Segment segment, GearType gearType, double baggageCapacity, String color, short age, FuelType fuelType, short seatingCapacity, double fuelTankCapacity) {
+
+    }
+
     public abstract double calculateMonthlyCarPrice();
 
     public abstract double calculateDailyCarPrice();

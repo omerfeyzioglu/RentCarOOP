@@ -5,43 +5,21 @@ import rent.Models.enums.FuelType;
 import rent.Models.enums.GearType;
 import rent.Models.enums.Segment;
 
-
 public class SUV extends Car {
-
-
     private boolean fourWheelDrive;
     private double groundClearance;
     private double towingCapacity;
     private boolean offRoadCapability;
     private boolean roofRails;
-    private double cargoSpace;
 
-    public SUV(String model, String brand, String segment, String gearType, double baggageCapacity, String color, short age,
-               String fuelType, GearType specificGearType, FuelType specificFuelType, Segment specificSegment, short seatingCapacity,double fuelTankCapacity, boolean fourWheelDrive, double groundClearance, double towingCapacity, boolean offRoadCapability,boolean roofRails, double cargoSpace ) {
-        super(model, brand, segment, gearType, baggageCapacity, color, age, fuelType, specificGearType, specificFuelType, specificSegment, seatingCapacity, fuelTankCapacity);
+    public SUV(String model, String brand, GearType gearType, double baggageCapacity, String color, short age, FuelType fuelType, short seatingCapacity, double fuelTankCapacity, boolean fourWheelDrive, double groundClearance, double towingCapacity, boolean offRoadCapability, boolean roofRails) {
+        super(model, brand, Segment.SUV, gearType, baggageCapacity, color, age, fuelType, seatingCapacity, fuelTankCapacity);
         this.fourWheelDrive = fourWheelDrive;
         this.groundClearance = groundClearance;
         this.towingCapacity = towingCapacity;
         this.offRoadCapability = offRoadCapability;
         this.roofRails = roofRails;
-        this.cargoSpace = cargoSpace;
     }
-
-    @Override
-    public double calculateMonthlyCarPrice()  {
-        try {
-            throw new Exception("SUV CAN NOT BE RENTED MONTHLY");
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @Override
-    public double calculateDailyCarPrice() {
-            return 2900;
-    }
-
-
 
     public boolean isFourWheelDrive() {
         return fourWheelDrive;
@@ -55,7 +33,7 @@ public class SUV extends Car {
         return groundClearance;
     }
 
-    public void setGroundClearance(short groundClearance) {
+    public void setGroundClearance(double groundClearance) {
         this.groundClearance = groundClearance;
     }
 
@@ -63,7 +41,7 @@ public class SUV extends Car {
         return towingCapacity;
     }
 
-    public void setTowingCapacity(short towingCapacity) {
+    public void setTowingCapacity(double towingCapacity) {
         this.towingCapacity = towingCapacity;
     }
 
@@ -83,24 +61,13 @@ public class SUV extends Car {
         this.roofRails = roofRails;
     }
 
-
-
-
-    public double getCargoSpace() {
-        return cargoSpace;
+    @Override
+    public double calculateMonthlyCarPrice() {
+        return calculateDailyCarPrice() * 30;
     }
 
-    public void setCargoSpace(double cargoSpace) {
-        this.cargoSpace = cargoSpace;
+    @Override
+    public double calculateDailyCarPrice() {
+        return 650;
     }
-
-    public void setGroundClearance(double groundClearance) {
-        this.groundClearance = groundClearance;
-    }
-
-    public void setTowingCapacity(double towingCapacity) {
-        this.towingCapacity = towingCapacity;
-    }
-
-
 }

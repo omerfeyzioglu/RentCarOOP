@@ -24,4 +24,6 @@ public abstract class Client {
     public void setName(String name) {
         this.name = name;
     }
+
+    public abstract boolean canRentCarType(String carType);
 }
